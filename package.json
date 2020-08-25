@@ -1,0 +1,17 @@
+{
+  "name": "jsajx-en",
+  "version": "1.0.0",
+  "description": "Advanced aspects of JavaScript - workshop / exercises",
+  "main": "src/00-Warm-up/00-1st-sample-warm-up.js",
+  "dependencies": {
+    "immutable": "^4.0.0-rc.12",
+    "immer": "^7.0.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "echo \"Please install VSC plugin: JS REPL ('achil.vscode-javascript-repl') and enjoy your exercises !\""
+  },
+  "keywords": [],
+  "author": "Jabi",
+  "license": "ISC"
+}

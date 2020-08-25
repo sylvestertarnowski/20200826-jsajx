@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Modular ES6 ! 🔥</title>
+</head>
+<body>
+    <div>
+        <h1> Please, check out the console 😎 </h1>
+    </div>
+    <script>
+        const coffeeName = 'Kopi luwak';
+    </script>
+    <script>
+        console.log('Standard JS behavior: ', coffeeName , '☕');
+    </script>
+
+    <script type="module">
+        const bossCoffee = '';
+    </script>
+    <script type="module">
+        // import { mySecretConstant } from './a20-1st-helper.js'
+        console.log('Access to global variables:', coffeeName);
+        try {
+	        console.log( 'Access to other module:', bossCoffee )
+        } catch (e) {
+        	console.error(e);
+        }
+        // console.log('Access to properly solved warm-up:', mySecretConstant)
+    </script>
+</body>
+</html>

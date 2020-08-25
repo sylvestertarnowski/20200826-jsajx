@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dynamic imports works without type=module</title>
+    <style>
+        h1 {
+            text-align: center;
+            padding: 2rem;
+            border: 2px solid crimson;
+            border-radius: 1rem;
+            background-color: lightcoral;
+            color: darkred;
+            font-family: sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <main id="root"></main>
+    <script>
+	    /**
+	    * What's interesting about it 🤔?
+	    * - the fact that it works and we don't need type="module" in <script>
+	    * */
+        const $root = document.querySelector('#root');
+        import('./a30-explain/a30-sample-module-1.js')
+          .then(({ strong }) => {
+             $root.innerHTML = `<h1>${strong()}</h1>`;
+          })
+    </script>
+</body>
+</html>
