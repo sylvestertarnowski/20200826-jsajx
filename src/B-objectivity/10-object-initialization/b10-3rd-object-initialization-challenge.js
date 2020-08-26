@@ -13,8 +13,29 @@ import { assertThat } from '../../j4b1-assert'
 
 function dressUpAccordingToWeather(weatherProvider, props) {
 	// #Rule:
-	// You can only here write the code
-
+    // You can only here write the code
+    
+    // const name = props.name;
+    
+    
+    const {name, lastName, has} = props;
+    
+    // const person = {
+    //     name,
+    //     lastName,
+    //     wearing: 'coat'
+    // }
+    // person[has] = true;
+    
+    // return person;
+    
+    return {
+        // name: name,
+        name,
+        lastName,
+        [has]: true,
+        wearing: weatherProvider === 'sunny' ? 't-shirt' : 'coat'
+    };
 }
 
 

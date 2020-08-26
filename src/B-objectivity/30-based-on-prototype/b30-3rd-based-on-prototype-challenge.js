@@ -20,7 +20,32 @@ import { assertThat } from '../../j4b1-assert'
  * - You obviously just can't touch the code with assertions!
  */
 
+// console.log(String)
+// console.log(Boolean)
+// console.log(Number)
 
+// const myLuckyNumber = new Number(7);
+// const myLuckyNumber2 = 7;
+
+// console.log(myLuckyNumber + 10)
+// console.log(myLuckyNumber2 + 10)
+
+// Extending native proptotype === Pollyfiling 
+String.prototype.last = function() {
+    return this.slice(-1); 
+    // this is safer than this below:
+    // return this[this.length -1 ]; 
+}
+
+String.prototype.capitalize = function() {
+    return this.charAt(0).toUpperCase() + this.slice(1);
+    // this is safer than this below:
+    // return this[0].toUpperCase();
+}
+
+''.capitalize() //
+
+// In day-to-day life do not try to extend Native prototypes on your own !
 
 // #Rule:
 // You must not change code below:

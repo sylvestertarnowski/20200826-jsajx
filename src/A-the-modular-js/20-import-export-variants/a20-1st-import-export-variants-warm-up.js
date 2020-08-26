@@ -1,4 +1,5 @@
 import { assertThat } from '../../j4b1-assert'
+import { mySecretConstant } from './a20-1st-helper'
 /**
  * a20-import-export-variants
  * Warm up
@@ -12,7 +13,6 @@ import { assertThat } from '../../j4b1-assert'
  * - you can add code in both files - but excluding keywords: let, const and string entries ""
  */
 
-const mySecretConstant = 'wrong way!';
 
 // #Rule:
 // You must not change code below:

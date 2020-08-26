@@ -22,6 +22,11 @@ function makeSomething() {
 }
 
 makeSomething();
+ 
+
+// impicit type coertion
+// 1 + '1' = '11'
+// 1 + 1 = 2
 
 // Things outside of the "return" keyword are called "Unreachable code" will never be executed
 function makeSomethingUnreachable() {
@@ -32,6 +37,8 @@ function makeSomethingUnreachable() {
 		console.log(10 + 20);
 }
 function makeSomethingUnreachable2() {
+    // implicit semicolon addition !
+    // return;
 	return
 	{
 		iAm: 'Unreachable code 😥'
@@ -61,11 +68,25 @@ console.log(number1, number2);
 
 // Besides, destructuring the array, other iterable collections in JS can be destructed in that way too:
 function returnStringThings() {
-	return 'AB'
+	return 'ABC'
 }
 
-const [a, b] = returnStringThings();
-console.log(a, b);
+console.log('hello'[4]);
+
+// Is dedicated for iterables
+for(let x of 'hello') {
+    console.log(x);
+}
+
+// for...in loop is RESERVED for OBJECTS keys only !!! {} 
+for(let x in { hello: 'World' }) {
+    console.log(x);
+}
+
+for( ;false; ) {} //?
+
+const [a, b, K] = returnStringThings();
+console.log(a, b, K);
 
 function returnTheSet() {
 	return new Set([100, 200]);

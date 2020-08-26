@@ -16,9 +16,13 @@ import { assertThat } from '../../j4b1-assert'
 
 class ShowDepartmentButton {
 
-	name = 'IT Department'
+    name = 'IT Department'
+    
+    // constructor() {
+    //     this.printMyName = this.printMyName.bind(this)
+    // }
 
-	printMyName() {
+	printMyName = () => {
 		return this.name;
 	}
 
@@ -26,7 +30,8 @@ class ShowDepartmentButton {
 		return {
 			type: 'button',
 			name: 'Gotcha !',
-      onClick: this.printMyName,
+            onClick: this.printMyName,
+            // onClick: () => this.printMyName(),
 			innerHTML: 'Show your department'
 		}
 	}
@@ -37,6 +42,8 @@ class ShowDepartmentButton {
 // You must not change code below:
 const myComponent = new ShowDepartmentButton();
 const renderedComponent = myComponent.render();
+
+console.log(myComponent.printMyName())
 
 assertThat(
 	'renderedComponent should be a button',

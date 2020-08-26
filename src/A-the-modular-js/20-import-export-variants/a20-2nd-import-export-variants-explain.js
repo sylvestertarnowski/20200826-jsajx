@@ -63,6 +63,7 @@
 	\ ---
 		import * as coffees from './mocha-coffee-namespaced.js';
 		console.log('I just like my', coffees.MOCHA);
+		console.log('I just like my', coffees.default);
 
 // The importer collects everything that is exported in the Exporter
 // This creates the `coffees` namespace to contain all the exported items
@@ -85,5 +86,5 @@
 /*
 	Importer:
 	\ ---
-		import coffee, { coffeeName } from './mocha-coffee-named';
+		import coffee, { MOCHA, ESPRESSO } from './mocha-coffee-namespaced';
 */

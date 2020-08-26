@@ -14,6 +14,14 @@ import { assertThat } from '../../j4b1-assert'
  * - you mustn't reference and overwrite the maxValue variable
  */
 
+ function nameOfUnction(parameter) {
+     console.log(parameter)
+ }
+ 
+ nameOfUnction('agrument');
+ Math.max(200, 100, 200, 900) //=
+ Math.max(...[200, 100, 200, 900]) //=
+ 
 let maxValue = 0;
 ;((ex, calculations = () => [0]) => {
 	// #Rule:
@@ -21,8 +29,18 @@ let maxValue = 0;
 	console.log('Welcome', ex);
 
 	maxValue = Math.max(...calculations());
-})();
+})('lol', () => [8000]);
 
+// function calculate(ex, calculations = () => [0]) {
+// 	// #Rule:
+//   // You mustn't change the code inside this scope
+// 	console.log('Welcome', ex);
+
+// 	maxValue = Math.max(...calculations());
+// }
+// calculate('Michael', function() {
+//     return [8000]
+// })
 
 // #Rule:
 // You must not change code below:

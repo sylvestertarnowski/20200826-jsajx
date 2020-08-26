@@ -10,7 +10,17 @@ import { assertThat } from '../../j4b1-assert'
  * - you have to add all the code needed for the test cases to be "PASS"
  */
 
+// console.log(['Maurice', 'Jen', 'Roy'])
+// console.log(['Maurice', 'Jen', 'Roy'].toString())
 
+const myItCrowd = {
+    characters: {
+        list: ['Maurice', 'Jen', 'Roy']
+    },
+    office: {
+        answerPhone: () => 'Did you try to turn it off and on again?'
+    }
+};
 
 // #Rule:
 // You must not change code below:

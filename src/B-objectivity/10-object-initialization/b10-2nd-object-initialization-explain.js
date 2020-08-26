@@ -36,7 +36,9 @@ function Person() {
 	 this.name = 'Michał';
 	 this.lastName = 'Kowalsky';
 }
-
+// const instance = new Person();
+// console.log(instance.name)
+// console.log(instance.lastName)
 
 // 3) Another way is to use syntactic sugar with the `class` keyword - this is, by far, the most enjoyable option
 // As long as we can use ES6 syntax (or we can transpile the code).
@@ -90,12 +92,19 @@ console.log(person4 instanceof Object, person4 instanceof MyOtherPerson)
 // Imagine this situation:
 function Car(name = '', engine = 2.0) {
 	this.name = name;
-	this.engine = engine;
+    this.engine = engine;
 }
 Car.has4Wheels = true;
 
 // We can further prepare instances:
 const myAudi = new Car('Audi', 2.2);
+const myAudi1 = new Car('BMW', 2.2);
+const myAudi2 = new Car('Audi3', 2.2);
+const myAudi3 = new Car('Audi4', 2.2);
+const myAudi4 = new Car('Audi', 2.2);
+
+myAudi1.has4Wheels //=
+
 const myToyota = new Car('Toyota', 4);
 
 console.log(myAudi)
@@ -116,7 +125,8 @@ class MyStaticClass {
 	}
 }
 
-MyStaticClass.showGreetings()
+MyStaticClass.showGreetings() 
+// MyStaticClass.isSuperCool //=
 
 
 // In this way it seems that we have a full "basket" of functionalities,
@@ -145,7 +155,14 @@ console.log(person4);
 // or using a constant:
 const key = 'my-illegal-key';
 person4[key] = '😎';
+
+// const myObj = {
+//     my-illegal-key: ''  
+// }
+
 console.log(person4);
+// console.log(person4['my-illegal-key']);
+
 
 // Note We Did Something That Wouldn't Be Possible Without this string-syntax !!! - object field, is now declared like this,
 // how could not be declared without a string value provided!!!
@@ -158,7 +175,7 @@ const myOtherObject = {
 }
 console.log(myOtherObject);
 
-// lub:
+// OR:
 const age = 'myAge';
 const user = {
 	name: 'Michal',
@@ -190,3 +207,7 @@ const arrayLike = {
 // console.log (arrayLike.0)
 // however we can get to the value like this:
 console.log(arrayLike[0], arrayLike[1]);
+
+// for(let x of arrayLike) {
+//     console.log(x)
+// }

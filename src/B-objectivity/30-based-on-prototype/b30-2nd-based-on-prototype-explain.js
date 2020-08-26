@@ -33,6 +33,9 @@ console.log(MyDepartment.otherStaticField)
 
 // The same can be written in a more modern way:
 class Department {
+    
+    static otherStaticField = 'hello';
+    
 	constructor (placement) {
 		this.placement = placement
 	}
@@ -43,7 +46,7 @@ class Department {
 		return this;
 	}
 }
-Department.otherStaticField = 'hello';
+// Department.otherStaticField = 'hello';
 
 const newIt = new Department('Last Floor IT');
 

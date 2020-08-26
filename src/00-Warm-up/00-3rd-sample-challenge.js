@@ -12,7 +12,8 @@ import { assertThat } from '../j4b1-assert'
 // #Rule:
 // You can only add new code without touching the old one
 function myWordList() {
-	return 'It is so easy...'
+    return 'It is so easy...'.split(' ')
+    // return ['It', 'is', 'so', 'easy...']
 }
 
 // #Rule:
@@ -31,9 +32,9 @@ assertThat(
 // #Rule:
 // You cannot add new code only - swap it and add comments
 function sendMeProperValue() {
-	return 100;
-	return 100;
 	return 300;
+    // return 100;
+	// return 100;
 }
 
 // #Rule:

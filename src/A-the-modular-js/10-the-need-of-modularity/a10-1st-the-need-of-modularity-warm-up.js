@@ -17,9 +17,39 @@ import { assertThat } from '../../j4b1-assert'
 var myValue = 2000;
 console.log('Current value is', myValue);
 
+/*
+let myValue = 2000;
+console.log('Current value is', myValue);
 
-var myValue = 3000;
-console.log( 'Current value is', myValue );
+{
+    let myValue = 3000;
+    console.log( 'Current value is', myValue );
+}
+*/
+// Possible solution 1:
+function hello() {
+    var myValue = 3000;
+    console.log( 'Current value is', myValue );
+}
+hello();
+
+// Possible solution 2:
+(function () {
+    var myValue = 3000;
+    console.log( 'Current value is', myValue );
+})();
+
+// Possible solution 3:
+(() => {
+    var myValue = 3000;
+    console.log( 'Current value is', myValue );
+})();
+
+(100 + 200).toString() //=
+
+// IIFE Immedietly Invoked Function Expression
+
+// myValue = 2000;
 
 // #Rule:
 // You must not change code below:

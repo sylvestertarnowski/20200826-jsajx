@@ -1,4 +1,6 @@
 import { assertThat } from '../../j4b1-assert'
+import { stringHelper, numberHelper } from './a20-challenge-project/czesuaf-util';
+
 /**
  * a20-import-export-variants
  * Challenge
@@ -24,6 +26,7 @@ import { assertThat } from '../../j4b1-assert'
  * - In this file (challenge) you can only use import entry (import syntax)!
  */
 
+ 
 // #Rule:
 // You mustn't change code below:
 const sampleString = 'Hello World';

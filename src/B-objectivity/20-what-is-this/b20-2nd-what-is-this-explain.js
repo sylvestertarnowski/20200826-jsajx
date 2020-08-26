@@ -65,7 +65,11 @@ console.log(global.name);
 
 const myCar = {
 	name: 'Audi',
-	whatIsYourName: borrowName
+    whatIsYourName: borrowName,
+    // under the hood:
+    // whatIsYourName() {
+	// 	return this.name;
+	// }
 }
 
 myCar.whatIsYourName(); //=
@@ -98,18 +102,33 @@ otherCar.bindBorrowName() //=
 // If they are not declared on the object - the keyword `this` will not show the global object, but just an empty object.
 // Arrow (lambda) functions do not rely on context!
 
+// console.log(this);
+
 const myThisInsideAnArrow = () => {
 	return this;
 }
 
 myThisInsideAnArrow() //=
 
+console.log(this);
+this.hello = '!@#'
+
 const adminUser = {
 	role: 'SuperAdmin',
-	getRole: () => this.role
+    getRole: () => this,
+    // getRole: function() {
+    //      return this.role;
+    // }
 }
 
-adminUser.getRole(); //=
+adminUser.getRole();//=
+
+const user = {
+    role: 'regular',
+    getRole: adminUser.getRole
+}
+
+user.getRole() //=
 
 // ?? WHY?
 // Remember: the place of declaration counts

@@ -12,8 +12,13 @@ import { assertThat } from '../j4b1-assert'
  * - you mustn't change existing code
  */
 
-function giveMeLargestNumber(a, b) {
+ const x = 10;
+console.log(x + 200); 
+x + 2000 //=
 
+function giveMeLargestNumber(a = 0, b = 0) {
+   return Math.max(a, b); 
+   // return a > b ? a : b;
 }
 
 // #Rule:

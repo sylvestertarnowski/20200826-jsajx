@@ -28,16 +28,16 @@ class Car extends Vehicle {
 		super(name);
 	}
 
-	shoutMyName() {
-		console.log(this.name);
-	}
+	// shoutMyName() {
+	// 	console.log(this.name);
+	// }
 }
 
 function shoutMyName() {
 	console.log(this.name);
 }
 
-// Vehicle.prototype.shoutMyName = shoutMyName;
+Vehicle.prototype.shoutMyName = shoutMyName;
 
 const car = new Car('Audi');
 console.log(car);
