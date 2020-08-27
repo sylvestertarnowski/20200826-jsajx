@@ -13,10 +13,45 @@ import { assertThat } from '../../j4b1-assert'
  * - Only change the code inside `makeWordsStatsWithSentence`
  */
 
+['try', 'did', 'again'].includes('did'); //=
+['try', 'did', 'again'].includes('diD'); //=
+ 
  function makeWordsStatsWithSentence(sentence, exclusionList = []) {
 	// #Rule:
-	// Code can be written only inside this block.
-	return { }
+    // Code can be written only inside this block.
+    
+    // helpers:
+    const notExluded = w => !exclusionList.includes(w);
+    // const toLowerCase = w => w.toLowerCase();
+    
+    const words = sentence.toLowerCase().split(' ');
+    const filteredWords = words.filter(notExluded).sort() //=
+    
+    // const resultObj = {};
+    
+    // filteredWords.forEach((w) => {
+    //     // if(resultObj[w]) {
+    //     //     resultObj[w] += 1;
+    //     // } else {
+    //     //     resultObj[w] = 1;
+    //     // }
+    //     resultObj[w] = resultObj[w] ? resultObj[w] + 1 : 1;
+    // })
+    
+    // return resultObj;
+    
+    // for(let w of filteredWords) {
+    //     if(resultObj[w]) {
+    //         resultObj[w] += 1;
+    //     } else {
+    //         resultObj[w] = 1;
+    //     }
+    // }
+    
+	return filteredWords.reduce((resultObj, key) => {
+        resultObj[key] = resultObj[key] ? resultObj[key] + 1 : 1;
+        return resultObj;
+    }, {});
 }
 
 const sentence1 = 'Did you try to turn it off and on again'

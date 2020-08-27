@@ -25,8 +25,7 @@ let num1 = '';
 let num2 = '';
 // the loop must stay and iterate over `numeric`, but you can modify its contents
 for(const placeholder of numeric) {
-	num1 += placeholder[0];
-	num2 += placeholder[1];
+	
 }
 // #Rule:
 // You must not change this code:
@@ -41,19 +40,18 @@ assertThat(
 // ------------------------------
 
 // You can edit this entry
-const DYNAMIC_KEY = 'showMeSomeNumbers';
+const DYNAMIC_KEY = 'show';
 
 // You cannot add new methods to this class!
 // You can edit the method names
 class MyIterableConcept {
 
 	['thisIsSimple']() {
-		return 'FUN';
+        // You can write the code here
 	}
 
 	[DYNAMIC_KEY]() {
 		// You can write the code here
-		return [90, 10, 20]
 	}
 }
 

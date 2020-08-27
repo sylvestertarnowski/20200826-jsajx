@@ -39,6 +39,11 @@ mySet[0] = true;
 mySet[10] = true;
 mySet[10] = true;
 mySet[200] = true;
+mySet[200] = true;
+mySet[200] = true;
+mySet[200] = true;
+mySet[200] = true;
+console.log(mySet)
 console.log(Object.keys(mySet));
 
 delete mySet[0];
@@ -54,22 +59,31 @@ console.log(Object.keys(mySet));
 
 const myRealMap = new Map();
 
+const myKey = {};
+
 myRealMap.set( 'hello', 'World' );
 myRealMap.set( 'hello', 'World 2' );
+myRealMap.set( myKey, 'Secret word' );
 myRealMap.set( 'myName', 'Maurice Moss' );
 myRealMap.set( 'myOtherName', 'Roy' );
 
 console.log( myRealMap );
 console.log( myRealMap.get( 'non-existing' ) );
 console.log( myRealMap.get( 'hello' ) );
+console.log( myRealMap.get( myKey ) );
 
 // Deleting an item:
 myRealMap.delete('hello') //=
 console.log(myRealMap)
 
+console.log(myRealMap.size)
+
 // Create a new Map from an existing (two-dimensional) array:
 console.log(
-	new Map([['key', 'value'], ['key2', 800]])
+	new Map([
+        ['key', 'value'], 
+        ['key2', 800]
+    ])
 )
 // Convert Map to Array:
 // Here comes the static method: `Array.from`
@@ -103,6 +117,17 @@ myRealMap.set('name', 'James') //=
 
 // Number of elements in the map:
 myRealMap.size //=
+
+const myCamera = {};
+const myOtherCamera = {};
+const myOther2Camera = myCamera;
+
+myOther2Camera === myCamera //=
+
+const cameraSet = new Set([myCamera, myOtherCamera, myOther2Camera]);
+
+console.log(cameraSet.has(myCamera))
+console.log(cameraSet.has(myOther2Camera))
 
 const myRealSet = new Set();
 

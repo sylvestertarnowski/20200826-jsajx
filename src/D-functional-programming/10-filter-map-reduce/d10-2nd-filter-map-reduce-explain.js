@@ -17,12 +17,38 @@ console.log(mapped);
 
 // Filtering
 // Change the number of elements (narrow down)
-const oddNumbers = [1,2,3,4,5].filter(nr => nr % 2);
+const oddNumbers = [1,2,3,4,5].filter(nr => nr > 3);
 console.log(oddNumbers);
 
 // "Reduce" elements
 // Where map and filter can't reduce might come handy!
 const sumOfElements = [1,2,3,4,5].reduce((acc, value) => acc + value);
+
+[1,2,3,4,5].forEach((num) => {
+    console.log(num);
+});
+
+[1,2,3,4,5].reduce((acc, value) => {
+    console.log(value)
+    return acc;
+}); //= 
+
+[1,2,3,4,5].reduce((acc, value) => {
+    console.log(value)
+    return acc;
+}, 900); //=
+
+[1,2,3,4,5].reduce((acc, value) => {
+    console.log(value)
+    return [...acc, value + 2];
+}, []); //=
+
+[1,2,3,4,5].reduce((numericObject, num) => {
+    console.log(num)
+    numericObject[num] = true;
+    return numericObject;
+}, {}); //=
+
 console.log(sumOfElements);
 
 // Consider the following example:

@@ -10,17 +10,9 @@ import { assertThat } from '../../j4b1-assert'
 
 class GuestList {
 
-	guests = [];
-
 	signGuest(name, lastName) {
-		this.guests.push({name, lastName});
-	}
-
-	*[Symbol.iterator]() {
-		for(const {name} of this.guests) {
-			yield name;
-		}
-	}
+        
+    }
 }
 
 // #Rule:

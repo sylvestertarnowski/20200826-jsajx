@@ -10,8 +10,13 @@ import { assertThat } from '../../j4b1-assert'
  * - You mustn't change the value in `numbers`
  */
 
+ Array.from('abcd'); //=
+ Array.from(new Set([1,2,1,1,1,1])); //=
+ console.log([ ...'hello world' ] )
+ 
 const numbers = [10, 20 , 30, 2, 2, 2, 30, 20, 2, 10, 8, 9, 0];
-const distinctNumbers = numbers
+// const distinctNumbers = Array.from(new Set(numbers))
+const distinctNumbers = [...new Set(numbers)]
 
 // #Rule:
 // You must not change code below:
