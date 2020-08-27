@@ -1,5 +1,6 @@
-import { assertThat } from '../../j4b1-assert'
 import { stringHelper, numberHelper } from './a20-challenge-project/czesuaf-util';
+import { assertThat } from '../../j4b1-assert'
+
 
 /**
  * a20-import-export-variants
@@ -34,32 +35,32 @@ const sampleString = 'Hello World';
 assertThat(
 	'lastLetter should give the last letter of the string',
 	expect => expect(stringHelper.lastLetter(sampleString)).toBe('d')
-)  //=
+)  //?
 assertThat(
 	'numberOfChars should give length of the given string',
 	expect => expect(stringHelper.numberOfChars(sampleString)).toBe(sampleString.length)
-)  //=
+)  //?
 assertThat(
 	'numberOfChars should give length of the given string',
 	expect => expect(stringHelper.countWords('Hello World ! ?')).toBe(2)
-)  //=
+)  //?
 assertThat(
 	'numberOfChars should give length of the given string',
 	expect => expect(stringHelper.capitalize('janusz')).toBe('Janusz')
-)  //=
+)  //?
 
 
 assertThat(
 	'addNumbers',
 	expect => expect(numberHelper.addNumbers(1000,210,20,0)).toBe(1230)
-)  //=
+)  //?
 
 assertThat(
 	'averageFrom',
 	expect => expect(numberHelper.averageFrom(30,40,100,20)).toBe(47.5)
-)  //=
+)  //?
 
 assertThat(
 	'toSecondPower',
 	expect => expect(numberHelper.toSecondPower(12)).toBe(144)
-)  //=
+)  //?
