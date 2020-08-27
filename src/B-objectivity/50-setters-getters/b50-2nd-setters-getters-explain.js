@@ -58,7 +58,7 @@ class MyItProfessional {
 				this.ageOfWork = 5;
 			break;
 			default:
-				console.warn('sorry, unknown position:', value);
+				console.log('sorry, unknown position:', value);
 		}
 	}
 }
@@ -70,6 +70,17 @@ maurice.position = 'mid';
 console.log(maurice.ageOfWork);
 maurice.position = 'expert';
 console.log(maurice.ageOfWork);
+
+// is iterable ?
+
+// is it enumerable 
+for(let key of Object.keys(maurice)) {
+    console.log(key);
+}
+
+for(let key in maurice) {
+    console.log(key);
+}
 
 // here we also added a setter - with which we can control the value of another field.
 

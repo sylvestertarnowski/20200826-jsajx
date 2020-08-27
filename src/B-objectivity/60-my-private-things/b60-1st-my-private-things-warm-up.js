@@ -15,13 +15,18 @@ const myGreetingObject = {
 	_welcomeMessage: 'Hello there',
 	name: 'Roy',
 	welcome() {
+        // this._welcomeMessage = 'HELLO';
 		return `${this._welcomeMessage} ${this.name} !😃`;
 	}
 }
 
 const welcomeRoy = myGreetingObject.welcome();
 
-myGreetingObject._welcomeMessage = 'Troll'
+Object.defineProperty(myGreetingObject, '_welcomeMessage', { writable: false });
+
+try {
+myGreetingObject._welcomeMessage = 'Troll';
+} catch {}
 
 myGreetingObject.name = 'Moss';
 const welcomeMoss = myGreetingObject.welcome();
@@ -34,14 +39,14 @@ const welcomeJen = myGreetingObject.welcome();
 assertThat(
 	'Welcome message for Roy should be like: "Hello there... " ',
 	expect => expect(welcomeRoy).toBe('Hello there Roy !😃')
-)  //=
+)  //?
 
 assertThat(
 	'Welcome message for Moss should be like: "Hello there... " ',
 	expect => expect(welcomeMoss).toBe('Hello there Moss !😃')
-)  //=
+)  //?
 
 assertThat(
 	'Welcome message for Jen should be like: "Hello there... " ',
 	expect => expect(welcomeJen).toBe('Hello there Jen !😃')
-)  //=
+)  //?

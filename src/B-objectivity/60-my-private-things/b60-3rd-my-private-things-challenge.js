@@ -14,9 +14,37 @@ import { assertThat } from '../../j4b1-assert'
  * - Do not change lawyerFactory parameters - they should stay intact.
  */
 
+     
+
+ 
 function lawyerFactory(fullName = '', salary = 3000) {
 	// #Rule:
-	// Code can be written only inside this block.
+    // Code can be written only inside this block.
+    // function Lawyer(fullName = '', salary = 3000) {
+    //     let _salary = salary;
+    //     this.firstName = fullName.split(" ")[0];
+    //     this.lastName = fullName.split(" ")[1];
+    //     this.makeARise = function (rise) {
+    //       _salary += rise;
+    //     }
+    //     this.getSalaryInfo = function () {
+    //       return this.firstName+' earns $' + _salary;
+    //     }
+    // }
+    
+    // return new Lawyer(fullName, salary);
+    const [firstName, lastName = ''] = fullName.split(' ');
+    let _salary = salary;
+    return {
+        firstName,
+        lastName,
+        getSalaryInfo() {
+            return firstName +' earns $' + _salary;
+        },
+        makeARise(riseAmount) {
+            _salary += riseAmount;
+        }
+    }
 }
 
 // #Rule:

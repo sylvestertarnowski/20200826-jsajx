@@ -8,8 +8,42 @@ import { assertThat } from '../../j4b1-assert'
  */
 const person = {
 	// #Rule:
-	// Code can be written only inside this block.
+    // Code can be written only inside this block.
+    name: 'Janusz',
+    lastName: 'Kowalsky',
+    get email() {
+        // return '😎'
+        return `${this.name.toLowerCase()}.${this.lastName.toLowerCase()}@workload.com`
+    },
+    set email(value) {
+        console.log(value)
+    }
 }
+
+Object.getOwnPropertyNames(person) //=
+for(let key of Object.keys(person)) {
+	console.log(key)
+}
+
+for(let key in person) {
+	console.log(key)
+}
+
+
+person.email = 'HELLO WORLD IM HERE';
+
+
+
+
+
+
+
+
+
+
+
+
+person.email //= 
 
 // #Rule:
 // You must not change code below:
@@ -28,3 +62,5 @@ assertThat(
 	'Person email from now - should be grazyna.nowak@workload.com',
 	expect => expect(person.email).toBe('grazyna.nowak@workload.com')
 )  //=
+
+person.email //= 

@@ -60,12 +60,48 @@ const stateTree = {
 // Initialize the data in the library
 const stateWatch = changeDetectionWatcher(stateTree);
 
+// WHY ?
+const groceryShop = {
+    fruits: ['strawberry', 'cherry'],
+    vegetables: []
+}
+// change
+function addFruit(fruit) {
+    // groceryShop.fruits.push(fruit);
+    // 
+    // -> thereIsAChangeEvent();
+    return {
+        ...groceryShop,
+        fruits: [...groceryShop.fruits, fruit]
+    };
+}
+
+const newState = addFruit('mango');
+
+// where is a problem ?
+console.log(groceryShop !== newState)
+
+// COMPONENT IS CHECKING
+console.log(groceryShop.fruits !== newState.fruits)
+
+console.log(groceryShop.vegetables !== newState.vegetables)
+
+// listener:
+// "somth was chanded":
+for(let x in groceryShop) {
+    // 
+}
+
+// Entry to the Event Sourcing
+
+
 // 1) Add new kind of coffee:
 // PERFORM the ACTION: Add new type of coffee:
 // #Rule:
 // Code can be written / changed here
-const coffeeBeans = stateTree.coffeeBeans;
+const coffeeBeans = [...stateTree.coffeeBeans];
 coffeeBeans.push('Robusta');
+
 // ----
 
 // #Rule:
@@ -92,7 +128,7 @@ assertThat(
 // PERFORM the ACTION: Make a coffee
 // #Rule:
 // Code can be written / changed here
-const coffeeMachine = stateTree.coffeeMachine;
+const coffeeMachine = {...stateTree.coffeeMachine};
 coffeeMachine.status = 'WORKING';
 coffeeMachine.water -= 150;
 coffeeMachine.coffee -= 50;

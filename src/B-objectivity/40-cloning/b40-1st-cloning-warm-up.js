@@ -15,6 +15,12 @@ const myFirstObject = {
 	title: 'Dr.'
 }
 
+const myClone = myFirstObject;
+
+console.log(myClone === myFirstObject);
+
+Object.keys(myFirstObject) //=
+
 const myFirstImpressiveObject = {
 	name: 'John Wick',
 	age: 55,
@@ -28,8 +34,27 @@ const myFirstImpressiveObject = {
 
 function cloner(objectToClone) {
 	// #Rule:
-	// Code can only be written in this block.
-	return objectToClone;
+    // Code can only be written in this block.
+    const myObject = {};
+    
+    Object.keys(objectToClone) //= + for..of loop
+    
+    for(let key in objectToClone) {
+        // console.log(key);
+        
+        // that suppose to be used with for in loop !
+        if (objectToClone.hasOwnProperty(key)) {
+
+        }
+        
+        if(typeof objectToClone[key] === 'object') {
+            myObject[key] = {...objectToClone[key]};
+        } else {
+            myObject[key] = objectToClone[key];
+        };
+    }
+    
+	return myObject;
 }
 
 
@@ -37,6 +62,23 @@ function cloner(objectToClone) {
 // You must not change code below:
 
 const clonedFirstObject = cloner(myFirstObject);
+
+// Primitives - those are assigned by value
+console.log('abc' === 'abc');
+console.log(12 === 12);
+
+// Complex types (object) - those are assigned by reference (pointer in memory)
+console.log(new Date() === new Date());
+console.log({} === {});
+console.log([] === []);
+
+const myArray = [];
+const myNewArray = myArray;
+
+console.log(myArray === myNewArray);
+
+console.log(clonedFirstObject === myFirstObject)
+
 const clonedFirstImpressiveObject = cloner(myFirstImpressiveObject);
 
 assertThat(

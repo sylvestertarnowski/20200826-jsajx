@@ -1,4 +1,5 @@
 import someUtil, { toSecondPower } from './main/utils/some-util' 
+
 import { addNumbers, averageFrom } from './main/helpers/my-things' 
 // import * as numericThings from './main/helpers/my-things' 
 import { firstLetterToUpper as capitalize } from './main/tools/tool-1' 
@@ -11,6 +12,7 @@ export const stringHelper = {
     numberOfChars: someUtil.numberOfChars,
     countWords,
     capitalize,
+    //...someUtil
     //capitalize: firstLetterToUpper
 }
 

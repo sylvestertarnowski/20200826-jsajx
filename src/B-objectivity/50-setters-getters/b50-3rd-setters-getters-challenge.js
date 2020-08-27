@@ -19,7 +19,21 @@ import { assertThat } from '../../j4b1-assert'
 
 const vintageCuckooClock = {
 	// #Rule:
-	// Code can only be written inside here.
+    // Code can only be written inside here.
+    hours: 20,
+    minutes: 11,
+    seconds: 44,
+    get lcdTime() {
+        return `${this.hours}:${this.minutes}:${this.seconds}`
+    },
+    set lcdTime(value) {
+        const [h, m,s] = value.split(':');
+        this.hours = parseInt(h);
+        this.minutes = Number(m);
+        
+        // this is cool but "criptic" -.-
+        this.seconds = +s;
+    }
 }
 
 // #Rule:

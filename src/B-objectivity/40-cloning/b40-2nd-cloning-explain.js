@@ -72,12 +72,15 @@ console.log(otherReference);
 
 // Shallow COPY - to the rescue!
 // It might seem that the following modern toys will do the trick:
-
+// = new Person()
 const user = {name: 'Mike'};
 
 const newUser = {...user};
 // OR:
 const assignedUser = Object.assign({}, user);
+
+// This will preserve constructor and make shallow copy
+const newUserWithConstructorPreserved = Object.create(user);
 
 console.log(user)
 console.log(newUser)
@@ -136,7 +139,13 @@ const complicatedObject = {
 	car: new Car()
 }
 
-function professionalCloner(toClone) {
+// the buggy problem:
+console.log(typeof null)
+console.log(typeof complicatedObject.car)
+console.log(complicatedObject.car instanceof Car)
+console.log(complicatedObject.car instanceof Object)
+
+export function professionalCloner(toClone) {
 	switch(typeof toClone) {
 		case 'string':
 		case 'symbol':
@@ -204,8 +213,18 @@ assertThat(
 )  //=
 assertThat(
 	'Copied Car object should preserve its constructor',
-	expect => expect(complicatedObject.car.constructor.name).toBe(clonedComplicated.car.constructor.name)
+	expect => expect(clonedComplicated.car.constructor.name).toBe(complicatedObject.car.constructor.name)
 )  //=
+
+if(complicatedObject.car instanceof Car) {
+    console.log('yey')
+}
+
+if(clonedComplicated.car instanceof Car) {
+    console.log('yey')
+}
+
+
 assertThat(
 	'cloned functions should not lead to the same point in memory',
 	expect => expect(complicatedObject.myFunction).notToBe(clonedComplicated.myFunction)
@@ -214,3 +233,6 @@ assertThat(
 	'serialized object structure should be the same',
 	expect => expect(JSON.stringify(complicatedObject)).toBe(JSON.stringify(clonedComplicated))
 )  //=
+
+
+// JSON.parse(JSON.stringify(objectToClone));

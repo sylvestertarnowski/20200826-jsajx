@@ -27,6 +27,7 @@ person._name = 'Roy'
 console.log(person)
 
 
+
 // 2) Using closure with factory function
 function laptopFactory(producer, model, ramAmount) {
 	let extendableRam = ramAmount;
@@ -44,6 +45,7 @@ function laptopFactory(producer, model, ramAmount) {
 }
 
 const myLaptop = laptopFactory('Dell', 'Precision 5530', 4)
+const myLaptop2 = laptopFactory('Acer', 'XTSDRX', 1)
 
 console.log(myLaptop)
 console.log(myLaptop.memory())
@@ -52,10 +54,13 @@ myLaptop.extendMemory(4)
 myLaptop.extendMemory(4)
 
 console.log(myLaptop.memory())
+console.log(myLaptop2.extendableRam)
 
 // 3) using closure in constructor function
 function MyPerson (name, salary) {
-	  let _salary = salary;
+      let _salary = salary;
+      
+      
 	  this.name = name;
 	  this.changeSalary = function (riseAmount = 0) {
 		   _salary += riseAmount;
@@ -66,6 +71,7 @@ function MyPerson (name, salary) {
 }
 
 const myWorker = new MyPerson('Jen', 6000);
+myWorker._salary //=
 myWorker.getSalary(); //=
 myWorker.changeSalary(2500);
 myWorker.getSalary(); //=
@@ -78,7 +84,8 @@ class Person {
 	name = 'John';
 
 	// private field inside the class:
-	#salary = 3000;
+    #salary = 3000;
+    // private salary = 3000;
 
 	makeARise() {
 		this.#salary += 1000;
@@ -90,6 +97,7 @@ class Person {
 }
 
 const mrJohn = new Person();
+mrJohn['salary'] = 30002220;
 console.log(mrJohn);
 console.log(mrJohn.showMySalary());
 mrJohn.makeARise();
