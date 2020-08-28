@@ -12,7 +12,7 @@
 
 // 1. Automatic memory allocation - the one you need
 // .....
-		// 2. program operation, memory use, writing, reading etc.
+// 2. program operation, memory use, writing, reading etc.
 // ......
 // 3. Free unnecessary memory with Garbage Collector
 
@@ -91,8 +91,8 @@ console.log(personLinker)
 function myDummyComponent() {
 
 	let second = 0;
-	let fireRerender = () => {};
-	setInterval(() => {
+	let fireRerender = () => { };
+	const inter = setInterval(() => {
 		second++;
 		fireRerender()
 	}, 1000)
@@ -100,6 +100,9 @@ function myDummyComponent() {
 	return {
 		onRerender(callback) {
 			fireRerender = callback
+		},
+		onDestroy() {
+			clearInterval(inter)
 		},
 		render() {
 			return `
@@ -113,11 +116,12 @@ function myDummyComponent() {
 }
 
 // Uncomment the code below to see this implementation
-// const myComponent = myDummyComponent();
-//
-// myComponent.onRerender(() => {
-// 	console.log(myComponent.render())
-// })
+const myComponent = myDummyComponent();
+
+myComponent.onRerender(() => {
+	console.log(myComponent.render())
+	myComponent.onDestroy();
+})
 
 // What are our problems here?
 
@@ -151,8 +155,8 @@ function myDummyComponent() {
 function hello() {
 	python_like = 'Hello World'
 }
-// hello()
-// console.log(global.python_like);
+hello()
+console.log(global.python_like);
 
 // The python_like variable - will be written to the global object, we will probably never need it,
 // or otherwise - our intention would be that it would be a local variable and it would be picked up by GC as soon as
@@ -169,10 +173,10 @@ function trickyHello() {
 
 // what happens if we run this function "just like that" and not on a specific object?
 // uncomment the line below
-// trickyHello();
+const tricky = new trickyHello();
 
 // see the effect:
-// console.log(globalThis.greetings)
+console.log(tricky.greetings)
 
 // That's why you need to be aware of this - because trickyHello is valid for JS.
 // The problem will be the execution context!

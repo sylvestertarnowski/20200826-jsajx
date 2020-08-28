@@ -182,7 +182,13 @@ const myUser = {
 // for(const sth of myUser) {
 // 	console.log(sth)
 // }
-
+Object.defineProperty(Object.prototype, Symbol.iterator, {
+	value: function() {
+		Object.keys(this).forEach(key => yield {
+			[key]: this[key]
+		})
+	}
+})
 // But with help and implementation `Symbol.iterator` + generator:
 const myIterableUser = {
 	name: 'Roy',

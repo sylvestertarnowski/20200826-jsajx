@@ -32,12 +32,16 @@ class Person {
 const moss = new Person();
 const roy = new Person();
 let canteenQueue = [roy, new Person(), roy, moss, new Person(), roy, new Person(), roy];
-;(function serveMeals() {
+; (function serveMeals() {
 	// #Rule:
 	// Code can be written only inside this block.
 	// You can only add / insert new
+	const mealGuard = new WeakSet([])
 	canteenQueue.forEach(person => {
-		person.collectMeal();
+		if (!mealGuard.has(person)) {
+			person.collectMeal();
+		}
+		mealGuard.add(person)
 	})
 })();
 canteenQueue = [];

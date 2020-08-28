@@ -17,9 +17,9 @@ import { assertThat } from '../../j4b1-assert'
 
 const state = {
 	shoppingList: [
-		{name: 'carrots', amount: '2kg', value: 10}
+		{ name: 'carrots', amount: '2kg', value: 10 }
 	]
-}
+};
 
 // The whole "problem" with the state of the data is its change.  z
 // Certainly the presentation of "Graphic representation" - what we see above
@@ -63,7 +63,7 @@ function addProduct(product = {}) {
 
 // Let's see how this state update - it will look like in Immer:
 function immerAddProduct(product = {}) {
-	return produce(state, (draft) => {
+	return produce(state, function (draft) {
 		draft.shoppingList.push(product);
 	});
 }
@@ -73,7 +73,7 @@ function immerAddProduct(product = {}) {
 
 const previousState = state;
 
-const nextState = immerAddProduct({ name: 'Lego', amount: '1kg', value: 200})
+const nextState = immerAddProduct({ name: 'Lego', amount: '1kg', value: 200 })
 
 assertThat(
 	'Previous state suppose to have 1 product',
@@ -124,7 +124,7 @@ console.log(previousState.shoppingList[0] === nextState.shoppingList[0])
 const myFruitListState = { fruits: ['bananas'] };
 
 const fruitReducer = produce((draft, action) => {
-	switch(action.type) {
+	switch (action.type) {
 		case 'ADD_FRUIT':
 			draft.fruits.push(action.payload);
 			break;
@@ -132,7 +132,7 @@ const fruitReducer = produce((draft, action) => {
 }, { fruits: [] })
 
 console.log(myFruitListState)
-const myNextFruitListState = fruitReducer(myFruitListState, {type: 'ADD_FRUIT', payload: 'cherries'})
+const myNextFruitListState = fruitReducer(myFruitListState, { type: 'ADD_FRUIT', payload: 'cherries' })
 
 // NEXT STATE:
 console.log(myNextFruitListState);

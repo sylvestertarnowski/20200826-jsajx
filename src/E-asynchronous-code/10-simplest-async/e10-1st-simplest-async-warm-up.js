@@ -21,11 +21,13 @@ function getTheRefund(refundFn) {
 
 // Person 1
 let collectedRefund = 0;
+getTheRefund(refundValue => collectedRefund += refundValue)
 
 
 // Person 2
 let collectedTwoRefunds = 0;
-
+getTheRefund(refundValue => collectedTwoRefunds += refundValue)
+getTheRefund(refundValue => collectedTwoRefunds += refundValue)
 
 // #Rule:
 // You must not change code below:

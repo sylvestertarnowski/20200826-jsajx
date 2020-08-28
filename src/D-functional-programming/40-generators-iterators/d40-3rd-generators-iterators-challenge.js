@@ -9,10 +9,15 @@ import { assertThat } from '../../j4b1-assert'
  */
 
 class GuestList {
-
+	guests = []
 	signGuest(name, lastName) {
-        
-    }
+		this.guests = [...this.guests, { name, lastName }]
+	}
+	*[Symbol.iterator]() {
+		for (let guest of this.guests) {
+			yield guest.name
+		}
+	}
 }
 
 // #Rule:
@@ -26,9 +31,9 @@ myGuests.signGuest('Janina', 'Doe');
 
 const collector = [];
 // uncomment the block below when some of solution will be implemented:
-// for(const guestName of myGuests) {
-// 	collector.push(guestName);
-// }
+for (const guestName of myGuests) {
+	collector.push(guestName);
+}
 
 // #Rule:
 // You must not change code below:
@@ -38,9 +43,9 @@ assertThat(
 )  //=
 assertThat(
 	'second guest should be Joe',
-	expect => expect(myGuests.guests[1]).toEqual( {name: 'Joe', lastName: 'Doe'})
+	expect => expect(myGuests.guests[1]).toEqual({ name: 'Joe', lastName: 'Doe' })
 )  //=
 assertThat(
 	'collector should have all the names from GuestList',
-	expect => expect(collector).toEqual(['Jane','Joe','Jan','Janina'])
+	expect => expect(collector).toEqual(['Jane', 'Joe', 'Jan', 'Janina'])
 )  //=

@@ -10,7 +10,7 @@ import { assertThat } from '../../j4b1-assert'
  * Where data modification creates a new object instance instead of mutating the existing one.
  */
 
-const original = new List([1, 2, 3, 4, 5]);
+const original = List([1, 2, 3, 4, 5]);
 const result = original.push(900);
 
 // #Rule:
@@ -34,7 +34,7 @@ assertThat(
 // ---------------------------------------------------------------------------------------------------------------------
 // POP FUNCTIONALITY:
 
-const withAllElements = new List(['mangoes', 'strawberries', 'blueberries']);
+const withAllElements = List(['mangoes', 'strawberries', 'blueberries']);
 const poppedElements = withAllElements.pop();
 
 assertThat(

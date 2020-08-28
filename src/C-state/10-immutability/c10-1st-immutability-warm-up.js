@@ -14,8 +14,9 @@ import { assertThat } from '../../j4b1-assert'
 
 function push (element, array) {
 	// #Rule:
-	// Code can be written inside this block.
-	return array;
+    // Code can be written inside this block.
+  
+	return [...array, element];
 }
 
 const original = [1, 2, 3, 4, 5];
@@ -42,12 +43,15 @@ assertThat(
 // ---------------------------------------------------------------------------------------------------------------------
 // 2) POP FUNCTIONALITY:
 
+/**
+ * 
+ * @param {any[]} array 
+ */
 function pop(array) {
 	// #Rule:
-	// Code can be written inside this block.
-	const newArray = [...array];
-	newArray.pop();
-	return newArray;
+    // Code can be written inside this block.
+  const excludeLastElement = (el, index) => index === array.length - 1 ? false : true
+	return array.filter(excludeLastElement);
 }
 
 const withAllElements = ['mangoes', 'strawberries', 'blueberries'];

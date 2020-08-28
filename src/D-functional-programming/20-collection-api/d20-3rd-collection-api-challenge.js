@@ -12,8 +12,13 @@ function myLittleDB() {
 	// Code can be written only inside this block.
 	const myLittleDb = new Map();
 	return {
-		insertItem(tableName, item) {},
-		getAll(tableName) {},
+		insertItem(tableName, item) {
+			myLittleDb.set(tableName, [ ...(myLittleDb.has(tableName) && myLittleDb.get(tableName)),item])
+			return myLittleDb.entries();
+		},
+		getAll(tableName) {
+			return myLittleDb.get(tableName)
+		},
 		getItemById(tableName, itemId) {},
 		getItem(tableName, queryFn) {},
 	}
